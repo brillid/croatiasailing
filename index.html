@@ -1,0 +1,23 @@
+<html>
+    <body>
+    <iframe id="manager"src=" https://www.booking-manager.com/wbm2/page.html?companyid=3838&amp;setlang=en&amp;resultsPerPage=10&amp;filter_kind=Sail boat&amp;view=SearchResult&amp;filter_year=2021&amp;filter_country=HR&amp;filter_month=4&amp;filter_date=1&amp;filter_duration=7&amp;filter_flexibility=on_day" width="100%" height="1500" frameborder="0" scrolling="yes"></iframe>
+
+    <script>
+        var iframe = document.querySelector("#manager");
+
+        var url = new URL(iframe.src);
+
+        var d = new Date();
+        d.setDate(d.getDate() + (1 + 5 - d.getDay()) % 7);
+
+        var day = d.getDate();
+        var month = d.getMonth();
+
+        url.searchParams.set("filter_date", day);
+        url.searchParams.set("filter_month", month);
+
+        iframe.src = url.href;
+    </script>
+    </body>
+</html>
+
